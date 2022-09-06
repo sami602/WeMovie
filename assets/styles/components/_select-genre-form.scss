@@ -1,0 +1,22 @@
+.select-genre-form {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding: 1rem;
+  color: $white;
+  background-color: $dark;
+  height: fit-content;
+  min-width: 200px;
+  border-radius: 0.375rem;
+  align-items: center;
+}
+
+.select-genre-form-label-container,
+.select-genre-form-action {
+  display: flex;
+  justify-content: center;
+}
+
+.select-genre-form-label {
+  font-size: calc(1.275rem + 0.3vw)
+}

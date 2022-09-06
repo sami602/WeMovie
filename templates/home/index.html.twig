@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}We Movies{% endblock %}
+
+{% block body %}
+    {% if top_rated_movie %}
+        <div class="mt-5 mb-5">
+            {% include 'movie/card.html.twig' with {movie: top_rated_movie, with_video: (videos is not empty), videos: videos, without_action: true, image_base_url: image_base_url} only %}
+        </div>
+    {% endif %}
+
+    <div class="main">
+        <div class="select-genre-form">
+            {{ form_start(genresForm) }}
+                <div class="select-genre-form-label-container">
+                    <span class="select-genre-form-label">{{ form_label(genresForm.genres) }}</span>
+                </div>
+                <hr>
+                {{ form_widget(genresForm.genres) }}
+                {{ form_errors(genresForm.genres) }}
+                <hr>
+                <div class="select-genre-form-action">
+                    <button class="btn btn-danger" type="submit">Découvrir</button>
+                </div>
+            {{ form_end(genresForm) }}
+        </div>
+
+        <div class="d-flex ms-5 flex-column">
+            {% for movie in movies %}
+                {% include 'movie/card.html.twig' with {image_base_url: image_base_url, movie: movie} only %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Font awesome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+
+// Layout
+@import "layout/main";
+
+// Components
+
+@import "components/autocomplete-search";
+@import "components/movie-card";
+@import "components/ratings";
+@import "components/select-genre-form";

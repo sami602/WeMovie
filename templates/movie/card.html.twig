@@ -1,0 +1,33 @@
+{% set vote_average = (movie.voteAverage/2)|number_format %}
+{% set with_video = with_video|default(false) %}
+
+<div class="card movie-card {{ with_video ? 'movie-card-with-video' }}">
+    {% if not with_video %}
+        <img class="movie-card-img" src="{{ image_base_url }}/{{ movie.posterPath }}">
+    {% else %}
+        <iframe width="100%" height="600" src="https://www.youtube.com/embed/{{ videos[0].key }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+    {% endif %}
+
+    <div class="card-body movie-card-body">
+        <h5 class="card-title">
+            {{ movie.title }}
+            <span class="ratings ms-3">
+                {% for i in 1..5 %}
+                    {% if vote_average >= i %}
+                        <i class="fas fa-star filled"></i>
+                    {% else %}
+                        <i class="fas fa-star"></i>
+                    {% endif %}
+                {% endfor %}
+            </span>
+            <span class="movie-card-vote-count">( {{- movie.voteCount|number_format(0, '.', ' ') }} votes) </span>
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ movie.releaseDate|date('Y') }}</h6>
+        <p class="card-text">{{ movie.overview }}</p>
+
+        {% if not without_action|default(false) %}
+            <button class="movie-card-action js-movie-card-action btn btn-primary" type="button" data-movie-id="{{ movie.id }}">Plus de détails</button>
+        {% endif %}
+    </div>
+</div>

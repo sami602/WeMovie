@@ -1,0 +1,32 @@
+.movie-card {
+  &:not(.movie-card-with-video) {
+    flex-direction: row;
+  }
+
+  height: fit-content;
+  margin-bottom: 3rem
+}
+
+.movie-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card-img {
+  height: auto;
+  max-width: 14rem;
+  width: 100%;
+  align-self: center;
+}
+
+.movie-card-vote-count {
+  color: $gray-600;
+  font-size: 1rem;
+}
+
+.movie-card-action {
+  margin-top: auto;
+  align-self: flex-end;
+  justify-self: flex-end;
+  width: 200px;
+}

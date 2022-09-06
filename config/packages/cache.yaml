@@ -1,5 +1,7 @@
 framework:
     cache:
+        # Set the directory we want our cache to be stored in
+        directory: '%kernel.project_dir%/cache'
         # Unique name of your app: used to compute stable namespaces for cache keys.
         #prefix_seed: your_vendor_name/app_name
 
@@ -15,5 +17,7 @@ framework:
         #app: cache.adapter.apcu
 
         # Namespaced pools use the above "app" backend by default
-        #pools:
+        pools:
+            themoviedbconfig.cache:
+                adapter: cache.adapter.filesystem
             #my.dedicated.cache: null

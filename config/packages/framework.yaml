@@ -17,6 +17,20 @@ framework:
     php_errors:
         log: true
 
+    http_client:
+        scoped_clients:
+            # only requests matching scope will use these options
+            themoviedb.client:
+                base_uri: '%env(THE_MOVIE_DB_BASE_URI)%'
+                headers:
+                    Accept: 'application/json'
+                    Content-Type: 'application/json'
+                    Connection: 'keep-alive'
+                    Accept-Charset: utf-8
+                query:
+                    api_key: '%env(THE_MOVIE_DB_API_KEY)%'
+                    language: '%env(THE_MOVIE_DB_LANGUAGE)%'
+
 when@test:
     framework:
         test: true

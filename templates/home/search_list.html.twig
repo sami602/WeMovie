@@ -1,0 +1,11 @@
+{% if movies|length > 0 %}
+    <ul class="list-group autocomplete-search-list ">
+        {% for movie in movies %}
+            <li>
+                <button type="button" class="list-group-item list-group-item-action js-movie-search-results-item-action" data-movie-id="{{ movie.id }}">
+                    {{ movie.title }}
+                </button>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

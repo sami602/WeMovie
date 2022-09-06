@@ -20,5 +20,12 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    App\Service\:
+        resource: '../src/Service/*'
+        autowire: true
+
+    App\ParamConverter\MovieConverter:
+        tags:
+            - { name: 'request.param_converter', converter: "MovieConverter"}
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
